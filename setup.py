@@ -18,7 +18,7 @@ def get_requirements(file_path:str)->List[str]: #accepting file path in str and 
 
 
 setup(
-    name='Regressor Project',
+    name='Diamond_Price_Prediction',
     version='0.0.1',
     author='Nilay',
     author_email='nilaykr27@gmail.com',
