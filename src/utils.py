@@ -1,19 +1,19 @@
 import os
 import sys
-import pickle
+import pickle #for creating a pickle file from model
 import numpy as np 
 import pandas as pd
 from sklearn.metrics import r2_score, mean_absolute_error, mean_squared_error
 from src.exception import CustomException
 from src.logger import logging
 
-def save_object(file_path, obj):
+def save_object(file_path, obj): # for saving pickle file
     try:
         dir_path = os.path.dirname(file_path)
 
         os.makedirs(dir_path, exist_ok=True)
 
-        with open(file_path, "wb") as file_obj:
+        with open(file_path, "wb") as file_obj: # opening file in write byte mode
             pickle.dump(obj, file_obj)
 
     except Exception as e:
