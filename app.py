@@ -9,11 +9,11 @@ app=application
 
 
 
-@app.route('/')
+@app.route('/') #creating homepage
 def home_page():
     return render_template('index.html')
 
-@app.route('/predict',methods=['GET','POST'])
+@app.route('/predict',methods=['GET','POST']) # get for retrieving page, post for manipulation
 
 def predict_datapoint():
     if request.method=='GET':
@@ -21,7 +21,7 @@ def predict_datapoint():
     
     else:
         data=CustomData(
-            carat=float(request.form.get('carat')),
+            carat=float(request.form.get('carat')), #typecasting string to float
             depth = float(request.form.get('depth')),
             table = float(request.form.get('table')),
             x = float(request.form.get('x')),
@@ -35,7 +35,7 @@ def predict_datapoint():
         predict_pipeline=PredictPipeline()
         pred=predict_pipeline.predict(final_new_data)
 
-        results=round(pred[0],2)
+        results=round(pred[0],2) #making predict data round till two
 
         return render_template('results.html',final_result=results)
 
